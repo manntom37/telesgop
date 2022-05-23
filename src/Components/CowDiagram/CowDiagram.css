@@ -15,12 +15,22 @@
 
 .dragText {
   padding: 10px;
-  border: 2px solid black;
-  border-radius: 25px;
+  border: 2px solid tomato;
+  background-color: tomato;
+  color: white;
+  border-radius: 20px;
   display: flex;
   text-align: center;
   align-items: center;
   margin: 10px;
+  font-weight: bold;
+}
+
+.dragText:hover {
+  border: 2px solid tomato;
+  background-color: white;
+  color: tomato;
+  cursor: pointer;
 }
 
 .checkDiv {
@@ -37,66 +47,62 @@
 
 .checkText {
   padding: 10px;
-  border: 2px solid black;
+  border: 2px solid tomato;
+  color: white;
+  background-color: tomato;
   border-radius: 25px;
+  font-weight: bold;
+}
+
+.checkText:hover {
+  border: 2px solid tomato;
+  color: tomato;
+  background-color: white;
 }
 
 .dropArea {
   display: flex;
   position: absolute;
-  top: 15%;
-  left: 15%;
-  padding: 15px;
-  margin: 10px;
-  /* border: 1px dashed black; */
-  border-radius: 25px;
-  width: 10vw;
-  height: 5vh;
+  top: 17%;
+  left: 9%;
+  width: 25vw;
+  height: 7vh;
   align-content: center;
   align-items: center;
   justify-content: center;
 }
+
 .dropArea2 {
   display: flex;
   position: absolute;
-  top: 25%;
-  left: 15%;
-  padding: 15px;
-  margin: 10px;
-  /* border: 1px dashed black; */
-  border-radius: 25px;
-  width: 10vw;
-  height: 5vh;
+  top: 24%;
+  left: 9%;
+  width: 25vw;
+  height: 8vh;
   align-content: center;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 }
 .dropArea3 {
   display: flex;
   position: absolute;
-  top: 40%;
-  left: 15%;
-  padding: 15px;
-  margin: 10px;
-  /* border: 1px dashed black; */
-  border-radius: 25px;
-  width: 10vw;
-  height: 5vh;
+  top: 36%;
+  left: 10.5%;
+  width: 25vw;
+  height: 10vh;
   align-content: center;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 }
 .dropArea4 {
   display: flex;
   position: absolute;
-  top: 23%;
-  left: 65%;
+  top: 19%;
+  left: 55%;
   padding: 10px;
   margin: 10px;
-  /* border: 1px dashed black; */
-  border-radius: 25px;
-  width: 10vw;
-  height: 5vh;
+  width: 25vw;
+  height: 10vh;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -105,17 +111,13 @@
 .dropArea5 {
   display: flex;
   position: absolute;
-  top: 43%;
-  left: 63%;
-  padding: 10px;
-  margin: 10px;
-  /* border: 1px dashed black; */
-  border-radius: 25px;
-  width: 10vw;
-  height: 5vh;
-  /* align-content: left; */
+  top: 40%;
+  left: 54.5%;
+  width: 25vw;
+  height: 10vh;
+  align-content: center;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .DropAreas {

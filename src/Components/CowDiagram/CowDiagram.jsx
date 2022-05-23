@@ -3,7 +3,7 @@ import cow from "../../Images/cow-blank.jpg";
 import Labels from "../Labels/Labels";
 import "./CowDiagram.css";
 import { useDrop } from "react-dnd";
-import { AiFillCheckCircle } from "react-icons/ai";
+import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 
 const LabelList = [
   {
@@ -11,24 +11,25 @@ const LabelList = [
     label: "Large Intestine",
   },
   {
-    id: 2,
-    label: "Small Intestine",
-  },
-  {
     id: 3,
     label: "Rumen",
+  },
+  {
+    id: 5,
+    label: "Abomasum",
   },
   {
     id: 4,
     label: "Reticulum",
   },
   {
-    id: 5,
-    label: "Abomasum",
+    id: 2,
+    label: "Small Intestine",
   },
 ];
 
 const CowDiagram = () => {
+  const [ticks, setTicks] = useState(false);
   const [board, setBoard] = useState([]);
   const [board2, setBoard2] = useState([]);
   const [board3, setBoard3] = useState([]);
@@ -36,6 +37,10 @@ const CowDiagram = () => {
   const [board5, setBoard5] = useState([]);
   const [youWin, setYouWin] = useState(false);
   const [correct1, setCorrect1] = useState(false);
+  const [correct2, setCorrect2] = useState(false);
+  const [correct3, setCorrect3] = useState(false);
+  const [correct4, setCorrect4] = useState(false);
+  const [correct5, setCorrect5] = useState(false);
 
   const addToBoard = (id) => {
     const labelList = LabelList.filter((label) => id === label.id);
@@ -101,6 +106,7 @@ const CowDiagram = () => {
     }),
   }));
   const handleCheck = () => {
+    handleTicks();
     if (
       board[0].label == "Large Intestine" &&
       board2[0].label == "Small Intestine" &&
@@ -112,9 +118,22 @@ const CowDiagram = () => {
     } else setYouWin(false);
   };
   const handleTicks = () => {
+    setTicks(true);
     if (board[0].label == "Large Intestine") {
       setCorrect1(true);
-    } else setCorrect1(false);
+    }
+    if (board2[0].label == "Small Intestine") {
+      setCorrect2(true);
+    }
+    if (board3[0].label == "Rumen") {
+      setCorrect3(true);
+    }
+    if (board4[0].label == "Reticulum") {
+      setCorrect4(true);
+    }
+    if (board5[0].label == "Abomasum") {
+      setCorrect5(true);
+    }
   };
   return (
     <>
@@ -127,18 +146,30 @@ const CowDiagram = () => {
 
       <div className="dropArea" ref={drop}>
         {correct1 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
+        {!correct1 && ticks ? (
+          <AiFillCloseCircle style={{ color: "red" }} />
+        ) : null}
+
         {board.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
       </div>
 
       <div className="dropArea2" ref={drop2}>
+        {correct2 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
+        {!correct2 && ticks ? (
+          <AiFillCloseCircle style={{ color: "red" }} />
+        ) : null}
         {board2.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
       </div>
 
       <div className="dropArea3" ref={drop3}>
+        {correct3 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
+        {!correct3 && ticks ? (
+          <AiFillCloseCircle style={{ color: "red" }} />
+        ) : null}
         {board3.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
@@ -148,13 +179,21 @@ const CowDiagram = () => {
         {board4.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
+        {correct4 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
+        {!correct4 && ticks ? (
+          <AiFillCloseCircle style={{ color: "red" }} />
+        ) : null}
       </div>
       <div className="dropArea5" ref={drop5}>
         {board5.map((label) => {
           return <Labels label={label.label} id={label.id} />;
-        })}
+        })}{" "}
+        {correct5 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
+        {!correct5 && ticks ? (
+          <AiFillCloseCircle style={{ color: "red" }} />
+        ) : null}
       </div>
-      <div className="checkDiv" onClick={handleCheck && handleTicks}>
+      <div className="checkDiv" onClick={handleCheck}>
         <p className="checkText">Check</p>
       </div>
       {youWin == true && (
