@@ -1,0 +1,148 @@
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+.cowpic {
+  border: 2px solid tomato;
+  position: static;
+}
+.allOrgans {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+}
+
+.dragText {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 25px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.checkDiv {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  width: 5vw;
+}
+
+.checkDiv:hover {
+  cursor: pointer;
+}
+
+.checkText {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 25px;
+}
+
+.dropArea {
+  display: flex;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  padding: 15px;
+  margin: 10px;
+  /* border: 1px dashed black; */
+  border-radius: 25px;
+  width: 10vw;
+  height: 5vh;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.dropArea2 {
+  display: flex;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  padding: 15px;
+  margin: 10px;
+  /* border: 1px dashed black; */
+  border-radius: 25px;
+  width: 10vw;
+  height: 5vh;
+  align-content: center;
+  align-items: center;
+  justify-content: right;
+}
+.dropArea3 {
+  display: flex;
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  padding: 15px;
+  margin: 10px;
+  /* border: 1px dashed black; */
+  border-radius: 25px;
+  width: 10vw;
+  height: 5vh;
+  align-content: center;
+  align-items: center;
+  justify-content: right;
+}
+.dropArea4 {
+  display: flex;
+  position: absolute;
+  top: 23%;
+  left: 65%;
+  padding: 10px;
+  margin: 10px;
+  /* border: 1px dashed black; */
+  border-radius: 25px;
+  width: 10vw;
+  height: 5vh;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropArea5 {
+  display: flex;
+  position: absolute;
+  top: 43%;
+  left: 63%;
+  padding: 10px;
+  margin: 10px;
+  /* border: 1px dashed black; */
+  border-radius: 25px;
+  width: 10vw;
+  height: 5vh;
+  /* align-content: left; */
+  align-items: center;
+  justify-content: start;
+}
+
+.DropAreas {
+  border: 2px solid tomato;
+  width: 7vw;
+  height: 5vw;
+  margin: auto;
+}
+
+.Labels {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.winDiv {
+  width: 25vw;
+  display: flex;
+  height: 25vh;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
