@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/manntom37/telesgop/static/css/main.f22579ef.css",
-    "main.js": "/manntom37/telesgop/static/js/main.682b919a.js",
-    "static/js/787.2f949cfc.chunk.js": "/manntom37/telesgop/static/js/787.2f949cfc.chunk.js",
-    "static/media/cow-blank.jpg": "/manntom37/telesgop/static/media/cow-blank.19f755b66b74b9e548f5.jpg",
-    "index.html": "/manntom37/telesgop/index.html",
-    "main.f22579ef.css.map": "/manntom37/telesgop/static/css/main.f22579ef.css.map",
-    "main.682b919a.js.map": "/manntom37/telesgop/static/js/main.682b919a.js.map",
-    "787.2f949cfc.chunk.js.map": "/manntom37/telesgop/static/js/787.2f949cfc.chunk.js.map"
+    "main.css": "/telesgop/static/css/main.f22579ef.css",
+    "main.js": "/telesgop/static/js/main.2f4722da.js",
+    "static/js/787.2f949cfc.chunk.js": "/telesgop/static/js/787.2f949cfc.chunk.js",
+    "static/media/cow-blank.jpg": "/telesgop/static/media/cow-blank.19f755b66b74b9e548f5.jpg",
+    "index.html": "/telesgop/index.html",
+    "main.f22579ef.css.map": "/telesgop/static/css/main.f22579ef.css.map",
+    "main.2f4722da.js.map": "/telesgop/static/js/main.2f4722da.js.map",
+    "787.2f949cfc.chunk.js.map": "/telesgop/static/js/787.2f949cfc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f22579ef.css",
-    "static/js/main.682b919a.js"
+    "static/js/main.2f4722da.js"
   ]
 }
