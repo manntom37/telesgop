@@ -53,7 +53,6 @@ const CowDiagram = () => {
   const [showCheck4, setShowCheck4] = useState(false);
   const [showCheck5, setShowCheck5] = useState(false);
 
-  const boards = [board, board2, board3, board4, board5];
 
   const addToBoard = (id) => {
     const labelList = LabelList.filter((label) => id === label.id);
@@ -192,7 +191,7 @@ const CowDiagram = () => {
         {false1 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
 
         {board.map((label) => {
-          return <Labels label={label.label} id={label.id} />;
+          return <Labels  key={label.id} label={label.label} id={label.id} />;
         })}
       </div>
 
@@ -200,7 +199,7 @@ const CowDiagram = () => {
         {correct2 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
         {false2 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
         {board2.map((label) => {
-          return <Labels label={label.label} id={label.id} />;
+          return <Labels key={label.id} label={label.label} id={label.id} />;
         })}
       </div>
 
@@ -208,20 +207,20 @@ const CowDiagram = () => {
         {correct3 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
         {false3 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
         {board3.map((label) => {
-          return <Labels label={label.label} id={label.id} />;
+          return <Labels key={label.id} label={label.label} id={label.id} />;
         })}
       </div>
 
       <div className="dropArea4" ref={drop4}>
         {board4.map((label) => {
-          return <Labels label={label.label} id={label.id} />;
+          return <Labels   key={label.id} label={label.label} id={label.id} />;
         })}
         {correct4 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
         {false4 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
       </div>
       <div className="dropArea5" ref={drop5}>
         {board5.map((label) => {
-          return <Labels label={label.label} id={label.id} />;
+          return <Labels key={label.id} label={label.label} id={label.id} />;
         })}{" "}
         {correct5 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
         {false5 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
@@ -246,8 +245,10 @@ const CowDiagram = () => {
           transition={{ duration: 0.6 }}
         >
           <p>
-            Gwych! <br></br><br></br> <SiHappycow className="cowEmoji" />
-            <br></br><br></br>Good job!
+            Gwych! <br></br>
+            <br></br> <SiHappycow className="cowEmoji" />
+            <br></br>
+            <br></br>Good job!
           </p>
         </motion.div>
       )}
