@@ -4,6 +4,8 @@ import Labels from "../Labels/Labels";
 import "./CowDiagram.css";
 import { useDrop } from "react-dnd";
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import { SiHappycow } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const LabelList = [
   {
@@ -29,7 +31,6 @@ const LabelList = [
 ];
 
 const CowDiagram = () => {
-  const [ticks, setTicks] = useState(false);
   const [board, setBoard] = useState([]);
   const [board2, setBoard2] = useState([]);
   const [board3, setBoard3] = useState([]);
@@ -41,29 +42,46 @@ const CowDiagram = () => {
   const [correct3, setCorrect3] = useState(false);
   const [correct4, setCorrect4] = useState(false);
   const [correct5, setCorrect5] = useState(false);
+  const [false1, setFalse1] = useState(false);
+  const [false2, setFalse2] = useState(false);
+  const [false3, setFalse3] = useState(false);
+  const [false4, setFalse4] = useState(false);
+  const [false5, setFalse5] = useState(false);
+  const [showCheck1, setShowCheck1] = useState(false);
+  const [showCheck2, setShowCheck2] = useState(false);
+  const [showCheck3, setShowCheck3] = useState(false);
+  const [showCheck4, setShowCheck4] = useState(false);
+  const [showCheck5, setShowCheck5] = useState(false);
+
+  const boards = [board, board2, board3, board4, board5];
 
   const addToBoard = (id) => {
     const labelList = LabelList.filter((label) => id === label.id);
     setBoard(labelList);
+    setShowCheck1(true);
   };
   const addToBoard2 = (id) => {
     const labelList2 = LabelList.filter((label) => id === label.id);
     setBoard2(labelList2);
+    setShowCheck2(true);
   };
 
   const addToBoard3 = (id) => {
     const labelList3 = LabelList.filter((label) => id === label.id);
     setBoard3(labelList3);
+    setShowCheck3(true);
   };
 
   const addToBoard4 = (id) => {
     const labelList4 = LabelList.filter((label) => id === label.id);
     setBoard4(labelList4);
+    setShowCheck4(true);
   };
 
   const addToBoard5 = (id) => {
     const labelList5 = LabelList.filter((label) => id === label.id);
     setBoard5(labelList5);
+    setShowCheck5(true);
   };
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -107,6 +125,7 @@ const CowDiagram = () => {
   }));
   const handleCheck = () => {
     handleTicks();
+
     if (
       board[0].label == "Large Intestine" &&
       board2[0].label == "Small Intestine" &&
@@ -118,21 +137,45 @@ const CowDiagram = () => {
     } else setYouWin(false);
   };
   const handleTicks = () => {
-    setTicks(true);
     if (board[0].label == "Large Intestine") {
       setCorrect1(true);
+      setFalse1(false);
+    }
+    if (board[0].label !== "Large Intestine") {
+      setFalse1(true);
+      setCorrect1(false);
     }
     if (board2[0].label == "Small Intestine") {
       setCorrect2(true);
+      setFalse2(false);
+    }
+    if (board2[0].label !== "Small Intestine") {
+      setCorrect2(false);
+      setFalse2(true);
     }
     if (board3[0].label == "Rumen") {
       setCorrect3(true);
+      setFalse3(false);
+    }
+    if (board3[0].label !== "Rumen") {
+      setCorrect3(false);
+      setFalse3(true);
     }
     if (board4[0].label == "Reticulum") {
       setCorrect4(true);
+      setFalse4(false);
+    }
+    if (board4[0].label !== "Reticulum") {
+      setCorrect4(false);
+      setFalse4(true);
     }
     if (board5[0].label == "Abomasum") {
       setCorrect5(true);
+      setFalse5(false);
+    }
+    if (board5[0].label !== "Abomasum") {
+      setCorrect5(false);
+      setFalse5(true);
     }
   };
   return (
@@ -146,9 +189,7 @@ const CowDiagram = () => {
 
       <div className="dropArea" ref={drop}>
         {correct1 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
-        {!correct1 && ticks ? (
-          <AiFillCloseCircle style={{ color: "red" }} />
-        ) : null}
+        {false1 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
 
         {board.map((label) => {
           return <Labels label={label.label} id={label.id} />;
@@ -157,9 +198,7 @@ const CowDiagram = () => {
 
       <div className="dropArea2" ref={drop2}>
         {correct2 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
-        {!correct2 && ticks ? (
-          <AiFillCloseCircle style={{ color: "red" }} />
-        ) : null}
+        {false2 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
         {board2.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
@@ -167,9 +206,7 @@ const CowDiagram = () => {
 
       <div className="dropArea3" ref={drop3}>
         {correct3 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
-        {!correct3 && ticks ? (
-          <AiFillCloseCircle style={{ color: "red" }} />
-        ) : null}
+        {false3 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
         {board3.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}
@@ -180,29 +217,39 @@ const CowDiagram = () => {
           return <Labels label={label.label} id={label.id} />;
         })}
         {correct4 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
-        {!correct4 && ticks ? (
-          <AiFillCloseCircle style={{ color: "red" }} />
-        ) : null}
+        {false4 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
       </div>
       <div className="dropArea5" ref={drop5}>
         {board5.map((label) => {
           return <Labels label={label.label} id={label.id} />;
         })}{" "}
         {correct5 ? <AiFillCheckCircle style={{ color: "green" }} /> : null}
-        {!correct5 && ticks ? (
-          <AiFillCloseCircle style={{ color: "red" }} />
-        ) : null}
+        {false5 ? <AiFillCloseCircle style={{ color: "red" }} /> : null}
       </div>
-      <div className="checkDiv" onClick={handleCheck}>
-        <p className="checkText">Check</p>
-      </div>
+      <div></div>
+
+      {showCheck1 && showCheck2 && showCheck3 && showCheck4 && showCheck5 ? (
+        <motion.button
+          className="checkText"
+          onClick={handleCheck}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Check
+        </motion.button>
+      ) : null}
+
       {youWin == true && (
-        <div className="winDiv">
+        <motion.div
+          className="winDiv"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 0.6 }}
+        >
           <p>
-            Gwych! <br></br>
-            <br></br>You correctly labelled the cow organs!
+            Gwych! <br></br><br></br> <SiHappycow className="cowEmoji" />
+            <br></br><br></br>Good job!
           </p>
-        </div>
+        </motion.div>
       )}
     </>
   );
