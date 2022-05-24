@@ -1,5 +1,6 @@
 {
   "name": "telesgop",
+  "homepage": "https://github.com/manntom37/telesgop/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
