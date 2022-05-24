@@ -6,7 +6,6 @@ import { useDrop } from "react-dnd";
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { SiHappycow } from "react-icons/si";
 import { motion } from "framer-motion";
-
 const LabelList = [
   {
     id: 1,
